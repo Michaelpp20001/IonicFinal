@@ -11,5 +11,24 @@
 </ion-header>
 
 <ion-content padding>
-
+  <div class="login-wrapper">
+    <form class="login">
+      <label class="title">
+        <h3 class="welcome">Register a new account</h3>
+      </label>
+        <ion-list class="form-block">
+          <ion-item class="form-group">
+            <ion-label floating>Email</ion-label>
+              <ion-input type="text"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Password</ion-label>
+            <ion-input type="password"></ion-input>
+          </ion-item>
+        </ion-list>
+          <ion-item>
+            <button ion-button size="large" type="submit" class="btn btn-primary" (click)="goHome()">Go Home</button>
+          </ion-item>
+    </form>
+  </div> 
 </ion-content>

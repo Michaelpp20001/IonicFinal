@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 import { TabsPage } from '../pages/tabs/tabs';
+import { GalleryPage } from '../pages/gallery/gallery';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -20,6 +21,7 @@ import { Camera } from '@ionic-native/camera';
     HomePage,
     LoginPage,
     RegisterPage,
+    GalleryPage,
     TabsPage
   ],
   imports: [
@@ -33,6 +35,7 @@ import { Camera } from '@ionic-native/camera';
     HomePage,
     LoginPage,
     RegisterPage,
+    GalleryPage,
     TabsPage
   ],
   providers: [

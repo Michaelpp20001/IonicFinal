@@ -3,6 +3,11 @@ import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { AlertController } from 'ionic-angular';
+import { PathLocationStrategy } from '@angular/common';
+
+class Photo {
+  data: any;
+}
 
 /*
   Generated class for the PictureServiceProvider provider.
@@ -13,12 +18,13 @@ import { AlertController } from 'ionic-angular';
 @Injectable()
 export class PictureServiceProvider {
 
+  public photos: Photo[] = [];
+
   constructor(private storage: Storage, public camera: Camera, public alertCtrl: AlertController) {
     console.log('Hello PictureServiceProvider Provider');
   }
 
-  myPicture: any;
-  myText: string = "hello picture service";
+  previewImage: any = this.photos.splice(-1)[0];
 
   options: CameraOptions = {
     quality: 100,
@@ -33,8 +39,9 @@ export class PictureServiceProvider {
     this.camera.getPicture(this.options).then((imageData) => {
       // imageData is either a base64 encoded string or a file URI
       // If it's base64 (DATA_URL):
-      this.myPicture = "data:image/jpeg;base64," + imageData;
-    }, (err) => {
+      this.photos.push({
+        data: 'data:image/jpeg;base64,' + imageData
+      }); }, (err) => {
         const alert = this.alertCtrl.create({
           title: 'Error!',
           subTitle: err,

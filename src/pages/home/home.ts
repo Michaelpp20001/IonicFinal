@@ -11,4 +11,7 @@ export class HomePage {
   constructor(public navCtrl: NavController, public _picService: PictureServiceProvider) {
   }
 
+  takePicture() {
+    this._picService.onTakePicture();
+  }
 }

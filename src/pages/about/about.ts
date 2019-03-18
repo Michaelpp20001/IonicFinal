@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { PictureServiceProvider } from '../../providers/picture-service/picture-service';
 
 @Component({
   selector: 'page-about',
@@ -7,7 +8,8 @@ import { NavController } from 'ionic-angular';
 })
 export class AboutPage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController,private _picture: PictureServiceProvider) {
+
 
   }
 

@@ -1,6 +1,7 @@
 //import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
+import { Camera, CameraOptions } from '@ionic-native/camera';
 
 /*
   Generated class for the PictureServiceProvider provider.
@@ -10,10 +11,18 @@ import { Storage } from '@ionic/storage';
 */
 @Injectable()
 export class PictureServiceProvider {
-  text="my text";
 
-  constructor(private storage: Storage) {
+  constructor(private storage: Storage, public camera: Camera) {
     console.log('Hello PictureServiceProvider Provider');
+  }
+
+  options: CameraOptions = {
+    quality: 100,
+    destinationType: this.camera.DestinationType.FILE_URI,
+    encodingType: this.camera.EncodingType.JPEG,
+    mediaType: this.camera.MediaType.PICTURE,
+    sourceType: this.camera.PictureSourceType.CAMERA,
+    correctOrientation: true
   }
 
 }

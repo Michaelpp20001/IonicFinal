@@ -12,6 +12,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { PictureServiceProvider } from '../providers/picture-service/picture-service';
 import { IonicStorageModule } from '@ionic/storage';
+import { Camera } from '@ionic-native/camera';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { IonicStorageModule } from '@ionic/storage';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    PictureServiceProvider
+    PictureServiceProvider,
+    Camera
   ]
 })
 export class AppModule {}

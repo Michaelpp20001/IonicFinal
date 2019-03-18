@@ -10,10 +10,10 @@
     Take a look at the <code>src/pages/</code> directory to add or change tabs,
     update any existing page or create new pages.
   </p>
-  <button ion-button block name="takePicture" (click)="takePicture()">Take Picture</button>
+  <button ion-button block name="takePicture" (click)="takePicture()"><ion-icon name="camera"></ion-icon>Take Picture</button>
 
   <p align="center">
     {{ this._picService.myText }}
-    <img src="{{ this._picService.myPhoto }}">
+    <img [src]="this._picService.myPicture" *ngIf="this._picService.myPicture"/>
   </p>
 </ion-content>

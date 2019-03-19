@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { AlertController } from 'ionic-angular';
-import { PathLocationStrategy } from '@angular/common';
 
 class Photo {
   data: any;
@@ -24,7 +23,7 @@ export class PictureServiceProvider {
     console.log('Hello PictureServiceProvider Provider');
   }
 
-  previewImage: any = this.photos.splice(-1)[0];
+  previewImage: any = this.photos;
 
   options: CameraOptions = {
     quality: 100,

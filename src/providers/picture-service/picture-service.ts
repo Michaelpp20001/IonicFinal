@@ -40,7 +40,9 @@ export class PictureServiceProvider {
       // If it's base64 (DATA_URL):
       this.photos.push({
         data: 'data:image/jpeg;base64,' + imageData
-      }); }, (err) => {
+      }); 
+      this.storage.set('photos', this.photos);
+    }, (err) => {
         const alert = this.alertCtrl.create({
           title: 'Error!',
           subTitle: err,
@@ -50,4 +52,9 @@ export class PictureServiceProvider {
     });
   }
 
+  loadSaved() {
+    this.storage.get('photos').then((photos) => {
+      this.photos = photos || [];
+    });
+  }
 }

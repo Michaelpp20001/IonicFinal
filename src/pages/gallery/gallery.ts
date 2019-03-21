@@ -23,4 +23,7 @@ export class GalleryPage {
     console.log('ionViewDidLoad GalleryPage');
   }
 
+  ngOnInit() {
+    this._picService.loadSaved();
+  }
 }

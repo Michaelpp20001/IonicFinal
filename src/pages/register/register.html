@@ -19,19 +19,19 @@
         <ion-list class="form-block">
           <ion-item>
             <ion-label floating>First Name</ion-label>
-              <ion-input type="text"></ion-input>
+              <ion-input [(ngModel)]="_user.appUser.firstName" type="text" name="fname"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label floating>Last Name</ion-label>
-              <ion-input type="text"></ion-input>
+              <ion-input [(ngModel)]="_user.appUser.lastName" type="text" name="lname"></ion-input>
           </ion-item>
           <ion-item class="form-group">
             <ion-label floating>Email</ion-label>
-              <ion-input type="text"></ion-input>
+              <ion-input [(ngModel)]="_user.appUser.email" type="text" name="email"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label floating>Password</ion-label>
-            <ion-input type="password"></ion-input>
+            <ion-input [(ngModel)]="_user.appUser.password" type="password" name="password"></ion-input>
           </ion-item>
         </ion-list>
             <button ion-button block size="large" type="submit" (click)="register()">Register</button>

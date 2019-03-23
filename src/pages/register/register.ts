@@ -23,4 +23,13 @@ export class RegisterPage {
     console.log('ionViewDidLoad RegisterPage');
   }
 
+  register() {
+    console.log(this._user.appUser)
+    this._user.onRegister()
+      .subscribe(
+        (response: any) => {
+          console.log("New User", response);
+        })
+      }
+
 }

@@ -9,7 +9,15 @@
   
   <div *ngFor="let photo of _picService.photos | slice:-1">
     <h3>Image Preview</h3>
-    <img [src]="photo.data"/>
+    <ion-card>
+        <img [src]="photo.data"/>
+          <ion-card-content>
+            <ion-card-title>
+            </ion-card-title>
+            <p>
+            </p>
+          </ion-card-content>
+      </ion-card>
   </div>
 
 </ion-content>

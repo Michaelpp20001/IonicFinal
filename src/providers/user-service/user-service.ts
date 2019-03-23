@@ -17,6 +17,8 @@ export class UserServiceProvider {
     password: "",
   };
 
+  loggedIn: boolean = false;
+
   apiBaseUrl: string = "http://localhost:3000/api/appUsers";
 
   constructor(public http: HttpClient) {

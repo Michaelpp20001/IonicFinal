@@ -24,7 +24,7 @@ export class RegisterPage {
   }
 
   register() {
-    console.log(this._user.appUser)
+    //console.log(this._user.appUser)
     this._user.onRegister()
       .subscribe(
         (response: any) => {

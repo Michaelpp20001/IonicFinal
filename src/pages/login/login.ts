@@ -27,7 +27,8 @@ export class LoginPage {
     this._user.onLogIn()
       .subscribe(
         (response: any) => {
-        console.log("Logged In User", response);
+        console.log("Logged In User", response, this._user.appUser);
+        this._user.loggedIn = true;
         })
   }
 

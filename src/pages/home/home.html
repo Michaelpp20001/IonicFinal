@@ -6,6 +6,8 @@
 
 <ion-content padding>
   <h2>Welcome to Capture and Store!</h2>
+  <h2 *ngIf="_user.loggedIn === true">
+    Hello, {{ _user.appUser.firstName }}</h2>
   
   <div *ngFor="let photo of _picService.photos | slice:-1">
     <h3>Image Preview</h3>

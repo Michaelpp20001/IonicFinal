@@ -10,8 +10,16 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class UserServiceProvider {
 
+  appUser: any = {
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+  };
+
   constructor(public http: HttpClient) {
     console.log('Hello UserServiceProvider Provider');
   }
+  
 
 }

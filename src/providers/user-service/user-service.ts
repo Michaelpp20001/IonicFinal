@@ -26,6 +26,10 @@ export class UserServiceProvider {
   onRegister() {
     return this.http.post(this.apiBaseUrl, this.appUser)
   }
+
+  onLogIn() {
+    return this.http.post(this.apiBaseUrl + "/login", this.appUser)
+  }
   
 
 }

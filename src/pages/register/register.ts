@@ -30,6 +30,6 @@ export class RegisterPage {
         (response: any) => {
           console.log("New User", response);
         })
-      }
+  }
 
 }

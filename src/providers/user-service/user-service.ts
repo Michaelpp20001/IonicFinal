@@ -30,7 +30,7 @@ export class UserServiceProvider {
   }
 
   onLogIn() {
-    return this.http.post(this.apiBaseUrl + "/login", this.appUser)
+    return this.http.post(this.apiBaseUrl + "/login?include=user&access_token=", this.appUser)
   }
   
 

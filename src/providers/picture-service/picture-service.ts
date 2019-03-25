@@ -6,6 +6,8 @@ import { AlertController } from 'ionic-angular';
 
 class Photo {
   data: any;
+  title: any;
+  description: any;
 }
 
 /*
@@ -38,9 +40,41 @@ export class PictureServiceProvider {
     this.camera.getPicture(this.options).then((imageData) => {
       // imageData is either a base64 encoded string or a file URI
       // If it's base64 (DATA_URL):
-      this.photos.push({
-        data: 'data:image/jpeg;base64,' + imageData
-      }); 
+        let prompt = this.alertCtrl.create({
+          title: 'New Image',
+          message: "Enter a title and description for the new image",
+          inputs: [
+            {
+              name: 'title',
+              placeholder: 'Title'
+            },
+            {
+              name: 'description',
+              placeholder: 'Description'
+            },
+          ],
+          buttons: [
+            {
+              text: 'Cancel',
+              handler: data => {
+                console.log('Cancel clicked');
+              }
+            },
+            {
+              text: 'Save',
+              handler: data => {
+                console.log(data.title, data.description);
+                this.photos.push({
+                  data: 'data:image/jpeg;base64,' + imageData,
+                  title: data.title,
+                  description: data.description
+                });
+                
+              }
+            }
+          ]
+        });
+        prompt.present(); 
       this.storage.set('photos', this.photos);
     }, (err) => {
         const alert = this.alertCtrl.create({

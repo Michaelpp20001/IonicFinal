@@ -86,6 +86,14 @@ export class PictureServiceProvider {
     });
   }
 
+  deletePhoto(photo) {
+    console.log(photo);
+    //this.storage.remove(photo.data);
+    //this.storage.remove(photo.title);
+    //this.storage.remove(photo.description);
+    //this.loadSaved();
+  }
+
   loadSaved() {
     this.storage.get('photos').then((photos) => {
       this.photos = photos || [];

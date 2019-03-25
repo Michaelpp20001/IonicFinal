@@ -19,6 +19,10 @@ export class GalleryPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public _picService: PictureServiceProvider) {
   }
 
+  onDeletePhoto(photo) {
+    this._picService.deletePhoto(photo);
+  }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad GalleryPage');
   }

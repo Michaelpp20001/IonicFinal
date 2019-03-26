@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { UserServiceProvider } from '../../providers/user-service/user-service';
-
+import { LoginPage } from '../../pages/login/login';
 /**
  * Generated class for the RegisterPage page.
  *
@@ -16,7 +16,7 @@ import { UserServiceProvider } from '../../providers/user-service/user-service';
 })
 export class RegisterPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public _user: UserServiceProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public _user: UserServiceProvider, ) {
   }
 
   ionViewDidLoad() {
@@ -29,6 +29,7 @@ export class RegisterPage {
       .subscribe(
         (response: any) => {
           console.log("New User", response);
+          this.navCtrl.setRoot(LoginPage);
         },  err => {console.log("hit error",err.error)})
   }
 

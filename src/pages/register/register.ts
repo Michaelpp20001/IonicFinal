@@ -29,7 +29,7 @@ export class RegisterPage {
       .subscribe(
         (response: any) => {
           console.log("New User", response);
-        })
+        },  err => {console.log("hit error",err.error)})
   }
 
 }

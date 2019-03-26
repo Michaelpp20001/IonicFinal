@@ -63,19 +63,22 @@ export class PictureServiceProvider {
             {
               text: 'Save',
               handler: data => {
-                console.log(data.title, data.description);
-                this.photos.push({
-                  data: 'data:image/jpeg;base64,' + imageData,
-                  title: data.title,
-                  description: data.description
-                });
+                this.save(data, imageData)
+              } ,
+              // handler: data => {
+              //   console.log(data.title, data.description);
+              //   this.photos.push({
+              //     data: 'data:image/jpeg;base64,' + imageData,
+              //     title: data.title,
+              //     description: data.description
+              //   });
                 
-              }
+              // }
             }
           ]
         });
         prompt.present(); 
-      this.storage.set('photos', this.photos);
+      //this.storage.set('photos', this.photos);
     }, (err) => {
         const alert = this.alertCtrl.create({
           title: 'Error!',
@@ -87,11 +90,24 @@ export class PictureServiceProvider {
   }
 
   deletePhoto(photo) {
-    console.log(photo);
-    //this.storage.remove(photo.data);
-    //this.storage.remove(photo.title);
-    //this.storage.remove(photo.description);
-    //this.loadSaved();
+    console.log(photo.title, photo.description);
+    let result = this.photos.splice( this.photos.findIndex(find => find.data === photo.data), 1);
+    console.log("deleted", result[0].title);
+    this.set(); 
+  }
+
+  set() {
+    this.storage.set('photos', this.photos);
+  }
+
+  save(data, imageData) {
+    console.log(data.title, data.description);
+    this.photos.push({
+      data: 'data:image/jpeg;base64,' + imageData,
+      title: data.title,
+      description: data.description
+    });
+    this.set();
   }
 
   loadSaved() {

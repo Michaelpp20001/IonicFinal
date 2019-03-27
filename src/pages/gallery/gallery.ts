@@ -19,8 +19,18 @@ export class GalleryPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public _picService: PictureServiceProvider) {
   }
 
+  previewImage(photo) {
+    console.log("clicked", photo.title);
+    this._picService.previewImage = photo;
+    this.goToHome();
+  }
+
   onDeletePhoto(photo) {
     this._picService.deletePhoto(photo);
+  }
+
+  goToHome() {
+    this.navCtrl.parent.select(0);
   }
 
   ionViewDidLoad() {

@@ -8,9 +8,22 @@
   <h2>Welcome to Capture and Store!</h2>
   <h2 *ngIf="_user.loggedIn === true">
     Hello, {{ _user.appUser.firstName }}</h2>
+
+  <div *ngIf="_picService.previewImage.data">
+    <h3>Image Preview</h3>
+    <ion-card>
+      <img [src]="_picService.previewImage.data"/>
+        <ion-card-content>
+          <ion-card-title>
+            <p>{{ _picService.previewImage.title }}</p>
+            <p>{{ _picService.previewImage.description }}</p>
+          </ion-card-title>
+        </ion-card-content>
+    </ion-card>
+  </div>
   
   <div *ngFor="let photo of _picService.photos | slice:-1">
-    <h3>Image Preview</h3>
+    <h3>Last Picture Taken</h3>
     <ion-card>
         <img [src]="photo.data"/>
           <ion-card-content>

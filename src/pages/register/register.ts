@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { UserServiceProvider } from '../../providers/user-service/user-service';
-import { LoginPage } from '../../pages/login/login';
+
 /**
  * Generated class for the RegisterPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-
 @IonicPage()
 @Component({
   selector: 'page-register',
@@ -28,9 +27,13 @@ export class RegisterPage {
     this._user.onRegister()
       .subscribe(
         (response: any) => {
-          console.log("New User", response);
-          this.navCtrl.setRoot(LoginPage);
+          console.log("New User", response.firstName);
+          this.goToLogin();
         },  err => {console.log("hit error",err.error)})
+  }
+
+  goToLogin() {
+    this.navCtrl.parent.select(2);
   }
 
 }

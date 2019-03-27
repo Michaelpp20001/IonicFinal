@@ -14,5 +14,10 @@ export class HomePage {
 
   takePicture() {
     this._picService.onTakePicture();
+    this.goToGallery();
+  }
+
+  goToGallery() {
+    this.navCtrl.parent.select(1);
   }
 }

@@ -64,17 +64,8 @@ export class PictureServiceProvider {
               text: 'Save',
               handler: data => {
                 this.save(data, imageData)
-              } ,
-              // handler: data => {
-              //   console.log(data.title, data.description);
-              //   this.photos.push({
-              //     data: 'data:image/jpeg;base64,' + imageData,
-              //     title: data.title,
-              //     description: data.description
-              //   });
-                
-              // }
-            }
+              }
+            },
           ]
         });
         prompt.present(); 

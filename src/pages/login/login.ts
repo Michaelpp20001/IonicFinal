@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { UserServiceProvider } from '../../providers/user-service/user-service';
-import { HomePage } from '../../pages/home/home';
 
 /**
  * Generated class for the LoginPage page.
@@ -31,8 +30,11 @@ export class LoginPage {
         console.log("Logged In User", response);
         this._user.appUser = response.user;
         this._user.loggedIn = true;
-        this.navCtrl.setRoot(HomePage);
+        this.goToHome();
         })
   }
 
+  goToHome() {
+    this.navCtrl.parent.select(0);
+  }
 }

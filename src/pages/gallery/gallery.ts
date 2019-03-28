@@ -3,13 +3,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { PictureServiceProvider } from '../../providers/picture-service/picture-service';
 import { ToastController } from 'ionic-angular';
 
-/**
- * Generated class for the GalleryPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-gallery',

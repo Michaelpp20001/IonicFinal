@@ -18,8 +18,8 @@
               <img ion-long-press [interval]="500" (onPressing)="onDeletePhoto(photo)" (click)="previewImage(photo)" [src]="photo.data"/>
                 <ion-card-content>
                   <ion-card-title>
-                        <h2>{{ photo.title }}</h2>
-                        <p>{{ photo.description }}</p>
+                      <h2>{{ photo.title }}</h2>
+                      <p>{{ photo.description }}</p>
                   </ion-card-title>
                   <button ion-button ion-long-press [interval]="400" (click)="onDeletePhoto(photo)" small color="danger">Delete</button>
                 </ion-card-content>

@@ -12,12 +12,6 @@ class Photo {
   description: any;
 }
 
-/*
-  Generated class for the PictureServiceProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class PictureServiceProvider {
 
@@ -45,7 +39,7 @@ export class PictureServiceProvider {
     sourceType: this.camera.PictureSourceType.CAMERA,
     correctOrientation: true
   }
-  //Takes a picture using native,uses prompt alert with two inputs, and saves to storage
+  //Takes a picture using native, uses prompt alert with two inputs, and saves to storage
   onTakePicture() {
     this.camera.getPicture(this.options).then((imageData) => {
         let prompt = this.alertCtrl.create({

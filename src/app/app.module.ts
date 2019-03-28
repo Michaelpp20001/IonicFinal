@@ -16,6 +16,7 @@ import { PictureServiceProvider } from '../providers/picture-service/picture-ser
 import { IonicStorageModule } from '@ionic/storage';
 import { Camera } from '@ionic-native/camera';
 import { UserServiceProvider } from '../providers/user-service/user-service';
+import { LongPressModule } from 'ionic-long-press';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { UserServiceProvider } from '../providers/user-service/user-service';
     TabsPage
   ],
   imports: [
+    LongPressModule,
     HttpClientModule,
     BrowserModule,
     IonicModule.forRoot(MyApp),

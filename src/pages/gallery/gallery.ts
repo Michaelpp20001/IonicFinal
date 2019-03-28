@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { PictureServiceProvider } from '../../providers/picture-service/picture-service';
+import { ToastController } from 'ionic-angular';
 
 /**
  * Generated class for the GalleryPage page.
@@ -16,7 +17,12 @@ import { PictureServiceProvider } from '../../providers/picture-service/picture-
 })
 export class GalleryPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public _picService: PictureServiceProvider) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public _picService: PictureServiceProvider,
+    public toastCtrl: ToastController
+    ) {
   }
 
   previewImage(photo) {
@@ -31,6 +37,15 @@ export class GalleryPage {
 
   goToHome() {
     this.navCtrl.parent.select(0);
+  }
+
+  presentToast() {
+    let toast = this.toastCtrl.create({
+      message: 'Dont you dare do it!!',
+      duration: 3000,
+      position: "top"
+    });
+    toast.present();
   }
 
   ionViewDidLoad() {

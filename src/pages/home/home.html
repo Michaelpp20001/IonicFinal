@@ -19,14 +19,14 @@
       <img [src]="_picService.previewImage.data"/>
         <ion-card-content>
           <ion-card-title>
-            <h2>{{ _picService.previewImage.title }}</h2>
-            <p>{{ _picService.previewImage.description }}</p>
+            <h2 text-left>{{ _picService.previewImage.title }}</h2>
+            <p text-left>{{ _picService.previewImage.description }}</p>
           </ion-card-title>
         </ion-card-content>
     </ion-card>
   </div>
   
-  <div *ngFor="let photo of _picService.photos | slice:-1">
+  <!-- <div *ngFor="let photo of _picService.photos | slice:-1">
     <h3 text-center>Last Picture Taken</h3>
     <ion-card>
         <img [src]="photo.data"/>
@@ -37,7 +37,7 @@
             </ion-card-title>
           </ion-card-content>
       </ion-card>
-  </div>
+  </div> -->
 
 </ion-content>
 <ion-footer>

@@ -90,10 +90,29 @@ export class PictureServiceProvider {
   //removes current selected photo from gallery and returns/sets rest of photos array
   deletePhoto(photo) {
     console.log(photo.title, photo.description);
-    let result = this.photos.splice( this.photos.findIndex(find => find.data === photo.data), 1);
-    console.log("deleted", result[0].title);
-    this.set(); 
-  }
+      let confirm = this.alertCtrl.create({
+        title: 'Delete forever?',
+        message: 'Are you sure you want to permanently delete this photo?',
+        buttons: [
+          {
+            text: 'Cancel',
+            handler: () => {
+              console.log('Cancel clicked');
+            }
+          },
+          {
+            text: 'Delete',
+            handler: () => {
+              let result = this.photos.splice( this.photos.findIndex(find => find.data === photo.data), 1);
+              console.log("deleted", result[0].title);
+              this.set();
+            }
+          }
+        ]
+      });
+      confirm.present();
+    }
+  
   //resets storage key and value of photos
   set() {
     this.storage.set('photos', this.photos);
@@ -115,15 +134,4 @@ export class PictureServiceProvider {
     });
   }
 
-  // goToHome() {
-  //   this.navCtrl.parent.select(0);
-  // }
-
-  // goToGallery() {
-  //   this.navCtrl.parent.select(1);
-  // }
-
-  // goToLogin() {
-  //   this.navCtrl.parent.select(2);
-  // }
 }

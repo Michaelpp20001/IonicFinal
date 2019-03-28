@@ -16,7 +16,11 @@ import { UserServiceProvider } from '../../providers/user-service/user-service';
 })
 export class LoginPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public _user: UserServiceProvider) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public _user: UserServiceProvider
+    ) {
   }
 
   ionViewDidLoad() {

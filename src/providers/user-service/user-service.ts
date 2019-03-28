@@ -22,7 +22,7 @@ export class UserServiceProvider {
   //first address is for computer, second address is for mobile authentication
 
   //apiBaseUrl: string = "http://localhost:3000/api/appUsers";
-  apiBaseUrl: string = "http://192.168.1.179:3000/api/appUsers";
+  apiBaseUrl: string = "http://192.168.0.163:3000/api/appUsers";
 
   constructor(public http: HttpClient) {
     console.log('Hello UserServiceProvider Provider');

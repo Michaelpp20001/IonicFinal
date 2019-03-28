@@ -4,20 +4,22 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Capture and Store!</h2>
+<ion-content text-center no-padding>
+  <h2 text-center>Welcome to Capture and Store!</h2>
   <h2 *ngIf="_user.loggedIn === true">
     Hello, {{ _user.appUser.firstName }}</h2>
-    <img src="../../assets/imgs/picGif.gif"/>
-    <h2>Start your creative adventure!</h2>
+    <div *ngIf="!_picService.previewImage.data">
+      <img src="../../assets/imgs/picGif.gif"/>
+      <h2 text-center>Start your creative adventure!</h2>
+    </div>
 
   <div *ngIf="_picService.previewImage.data">
-    <h3>Image Preview</h3>
+    <h3 text-center>Image Preview</h3>
     <ion-card>
       <img [src]="_picService.previewImage.data"/>
         <ion-card-content>
           <ion-card-title>
-            <p>{{ _picService.previewImage.title }}</p>
+            <h2>{{ _picService.previewImage.title }}</h2>
             <p>{{ _picService.previewImage.description }}</p>
           </ion-card-title>
         </ion-card-content>
@@ -25,12 +27,12 @@
   </div>
   
   <div *ngFor="let photo of _picService.photos | slice:-1">
-    <h3>Last Picture Taken</h3>
+    <h3 text-center>Last Picture Taken</h3>
     <ion-card>
         <img [src]="photo.data"/>
           <ion-card-content>
             <ion-card-title>
-              <p>{{ photo.title }}</p>
+              <h2>{{ photo.title }}</h2>
               <p>{{ photo.description }}</p>
             </ion-card-title>
           </ion-card-content>

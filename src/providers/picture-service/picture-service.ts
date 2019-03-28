@@ -20,15 +20,21 @@ class Photo {
 */
 @Injectable()
 export class PictureServiceProvider {
-  //create an empty photos array of new instances of Photos class
-  public photos: Photo[] = [];
 
-  constructor(private storage: Storage, public camera: Camera, public alertCtrl: AlertController) {
+  constructor(
+    private storage: Storage,
+    public camera: Camera, 
+    public alertCtrl: AlertController
+    ) {
     console.log('Hello PictureServiceProvider Provider');
   }
 
-  //empty preview image to push current selected image from gallery into the home view
-  previewImage: Photo[] = [];
+    //create an empty photos array of new instances of Photos class
+    public photos: Photo[] = [];
+
+    //empty preview image to push current selected image from gallery into the home view
+    previewImage: Photo[] = [];
+ 
 
   //define camera and picture options
   options: CameraOptions = {
@@ -108,4 +114,16 @@ export class PictureServiceProvider {
       this.photos = photos || [];
     });
   }
+
+  // goToHome() {
+  //   this.navCtrl.parent.select(0);
+  // }
+
+  // goToGallery() {
+  //   this.navCtrl.parent.select(1);
+  // }
+
+  // goToLogin() {
+  //   this.navCtrl.parent.select(2);
+  // }
 }

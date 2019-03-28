@@ -4,6 +4,8 @@ import { Storage } from '@ionic/storage';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { AlertController } from 'ionic-angular';
 
+//Generate class for Photos
+
 class Photo {
   data: any;
   title: any;
@@ -18,15 +20,17 @@ class Photo {
 */
 @Injectable()
 export class PictureServiceProvider {
-
+  //create an empty photos array of new instances of Photos class
   public photos: Photo[] = [];
 
   constructor(private storage: Storage, public camera: Camera, public alertCtrl: AlertController) {
     console.log('Hello PictureServiceProvider Provider');
   }
 
-  previewImage: any = this.photos;
+  //empty preview image to push current selected image from gallery into the home view
+  previewImage: Photo[] = [];
 
+  //define camera and picture options
   options: CameraOptions = {
     quality: 100,
     destinationType: this.camera.DestinationType.DATA_URL,
@@ -35,11 +39,9 @@ export class PictureServiceProvider {
     sourceType: this.camera.PictureSourceType.CAMERA,
     correctOrientation: true
   }
-
+  //Takes a picture using native,uses prompt alert with two inputs, and saves to storage
   onTakePicture() {
     this.camera.getPicture(this.options).then((imageData) => {
-      // imageData is either a base64 encoded string or a file URI
-      // If it's base64 (DATA_URL):
         let prompt = this.alertCtrl.create({
           title: 'New Image',
           message: "Enter a title and description for the new image",
@@ -69,7 +71,7 @@ export class PictureServiceProvider {
           ]
         });
         prompt.present(); 
-      //this.storage.set('photos', this.photos);
+        //creates an error alert if no image selected or failed action
     }, (err) => {
         const alert = this.alertCtrl.create({
           title: 'Error!',
@@ -79,18 +81,18 @@ export class PictureServiceProvider {
         alert.present();
     });
   }
-
+  //removes current selected photo from gallery and returns/sets rest of photos array
   deletePhoto(photo) {
     console.log(photo.title, photo.description);
     let result = this.photos.splice( this.photos.findIndex(find => find.data === photo.data), 1);
     console.log("deleted", result[0].title);
     this.set(); 
   }
-
+  //resets storage key and value of photos
   set() {
     this.storage.set('photos', this.photos);
   }
-
+  //saves a current image to storage, and sets key value
   save(data, imageData) {
     console.log(data.title, data.description);
     this.photos.push({
@@ -100,7 +102,7 @@ export class PictureServiceProvider {
     });
     this.set();
   }
-
+  //gets all photos from storage
   loadSaved() {
     this.storage.get('photos').then((photos) => {
       this.photos = photos || [];
